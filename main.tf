@@ -14,7 +14,7 @@ provider "render" {
 
 resource "render_service" "angular" {
   name   = "angulr-16"
-  repo   = "https://github.com/pratikdevelop/angulr-16"
+  repo   = "https://github.com/pratikdevelop/angular-16"
   branch = "master"
   type   = "static_site"
 
