@@ -1,7 +1,6 @@
 import { Component, inject, Input, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterOutlet } from '@angular/router';
-import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-root',
@@ -11,15 +10,10 @@ import { HomeService } from './home.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = signal('angular-16');
+  title = signal('dds');
   
   update(event: any): void {
     this.title.set(event.target.value)
   }
-}
-
-export function getContact(this: any): any {
-   
-  return 'ree'
 }
 
