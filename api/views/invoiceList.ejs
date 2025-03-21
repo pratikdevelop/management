@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="/static/css/style.css">
+    <title>Invoice Management Application</title>
+</head>
+
+<body>
+    <script src="/static/js/invoiceList.js" defer></script>
+    <div class="relative flex flex-col w-full h-[100vh] overflow-auto text-gray-700 bg-white p-5">
+        <div class="flex items-center w-full justify-between p-2 bg-slate-900 text-white">
+            <span class="text-3xl font-bold">Profilics</span>
+        </div>
+        <div class="flex items-center w-full justify-between p-5">
+            <span class="text-3xl font-bold">Invoice List</span>
+            <a href="/invoices/new" class="px-4 py-2 bg-slate-900 text-white">Add Invoice</a>
+        </div>
+        <div class="flex items-center w-full justify-between p-5">
+            <div class="w-full max-w-sm min-w-[700px]">
+                <input
+                    id="search-input"
+                    class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-blue-500 hover:border-blue-300 shadow-sm focus:shadow"
+                    placeholder="Search by invoice number, customer name, address or amount" />
+            </div>
+            <div class="w-full max-w-sm min-w-[200px]">
+                <div class="relative">
+                    <select id="category" onchange="changeCategory(this.value)"
+                        class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer">
+                        <option value="">All Categories</option>
+                    </select>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2"
+                        stroke="currentColor" class="h-5 w-5 ml-1 absolute top-2.5 right-2.5 text-slate-700">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <table class="w-full text-left table-fixed min-w-max text-slate-800 border-collapse border">
+            <thead>
+                <tr class="text-slate-500 border-b border-slate-300 bg-slate-50">
+                    <th class="p-4 border border-gray-300">
+                        <p class="text-sm leading-none font-normal">Id</p>
+                    </th>
+                    <th class="p-4 border border-gray-300">
+                        <p class="text-sm leading-none font-normal">Invoice Number</p>
+                    </th>
+                    <th class="p-4 border border-gray-300">
+                        <p class="text-sm leading-none font-normal">Customer Name</p>
+                    </th>
+                    <th class="p-4 border border-gray-300">
+                        <p class="text-sm leading-none font-normal">Address</p>
+                    </th>
+                    <th class="p-4 border border-gray-300">
+                        <p class="text-sm leading-none font-normal">Total Amount</p>
+                    </th>
+                    <th class="p-4 border border-gray-300">
+                        <p class="text-sm leading-none font-normal">Status</p>
+                    </th>
+                    <th class="p-4 border border-gray-300">
+                        <p class="text-sm leading-none font-normal">Actions</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <!-- Populated dynamically by invoiceList.js -->
+            </tbody>
+        </table>
+        <div class="flex items-center w-full justify-between p-5">
+            <div class="flex items-center space-x-1">
+                <span>Showing</span>
+                <span id="start-item">0</span>
+                <span>to</span>
+                <span id="end-item">0</span>
+                <span>of</span>
+                <span id="total-items">0</span>
+            </div>
+            <div class="flex space-x-2" id="pagination_buttons">
+                <!-- Populated dynamically by invoiceList.js -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

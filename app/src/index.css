@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+*{
+  /* font-family: "Winky Sans", sans-serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 600 !important;
+  font-style: normal !important; */
+  font-family: "Roboto", sans-serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
+  font-variation-settings:
+    "wdth" 100;
+}
